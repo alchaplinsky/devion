@@ -4,6 +4,8 @@
   "description": "Applications manager for developers",
   "main": "index.js",
   "scripts": {
+    "build": "npx webpack",
+    "watch": "npx webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +22,14 @@
   "bugs": {
     "url": "https://github.com/alchaplinsky/devion/issues"
   },
-  "homepage": "https://github.com/alchaplinsky/devion#readme"
+  "homepage": "https://github.com/alchaplinsky/devion#readme",
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6"
+  }
 }
