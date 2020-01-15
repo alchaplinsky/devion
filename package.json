@@ -23,6 +23,7 @@
     "url": "https://github.com/alchaplinsky/devion/issues"
   },
   "homepage": "https://github.com/alchaplinsky/devion#readme",
+  "preferGlobal": "true",
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
@@ -38,6 +39,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "commander": "^4.1.0"
+    "commander": "^4.1.0",
+    "inquirer": "^7.0.3"
   }
 }
