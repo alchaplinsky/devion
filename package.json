@@ -23,7 +23,10 @@
     "url": "https://github.com/alchaplinsky/devion/issues"
   },
   "homepage": "https://github.com/alchaplinsky/devion#readme",
-  "preferGlobal": "true",
+  "preferGlobal": true,
+  "bin": {
+    "devion": "bin/devion"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
