@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx webpack",
     "watch": "npx webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx eslint --color src"
   },
   "repository": {
     "type": "git",
@@ -24,12 +24,18 @@
   },
   "homepage": "https://github.com/alchaplinsky/devion#readme",
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
-  "dependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "babel-loader": "^8.0.6"
-  }
+  "dependencies": {}
 }
