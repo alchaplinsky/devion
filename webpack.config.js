@@ -1,5 +1,6 @@
 module.exports = {
   mode: 'none',
+  target: 'node',
   entry: './src/index.js',
   output: {
     filename: 'index.js',
