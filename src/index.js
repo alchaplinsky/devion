@@ -1,44 +1,23 @@
 import commander from 'commander'
 import json from '../package.json'
+import { setup } from './actions/base'
+import { resolve } from './cli'
 
-// Usage
 commander
   .version(json.version)
   .usage('[options]')
 
-// List
 commander
-  .command('list')
-  .description('Lists all available projects')
-  .action(() => {
-    // TODO: Implement list
+  .arguments('[name]')
+  .option('-l, --list')
+  .option('-s, --show')
+  .option('-e, --edit')
+  .option('-d, --delete')
+  .action((_, cmd) => {
+    setup()
+    resolve(cmd)
   })
-
-// New
-commander 
-  .command('new <name>')
-  .description('Setup new project')
-  .action(() => {
-    // TODO: Implement new
-  })
-
-// Add
-commander 
-  .command('add')
-  .description('Setup current path as new project')
-  .action(() => {
-    // TODO: Implement add
-  })
-
-// Remove
-commander 
-  .command('remove <name>')
-  .description('Remove project')
-  .action(() => {
-    // TODO: Implement add
-  })
-
-commander.parse(process.argv)
+  .parse(process.argv)
 
 if (!process.argv.slice(2).length) {
   commander.outputHelp()
