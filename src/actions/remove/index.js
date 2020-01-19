@@ -3,11 +3,14 @@ import { configFile } from '../base'
 
 const remove = name => {
   const config = configFile(name)
-  if (fs.existsSync(config)) {
-    fs.unlinkSync(config)
-    return true
-  }
-  return false
+  return new Promise((resolve, reject) => {
+    if (!fs.existsSync(config)) return reject(Error(`${name} does not exist`))
+
+    fs.unlink(config, error => {
+      if (error) return reject(error)
+      return resolve(true)
+    })
+  })
 }
 
 export { remove }

@@ -12,10 +12,16 @@ const execute = data => {
 
 const run = name => {
   const config = configFile(name)
-  if (fs.existsSync(config)) {
-    return execute(JSON.parse(fs.readFileSync(config)))
-  }
-  return false
+
+  return new Promise((resolve, reject) => {
+    if (!fs.existsSync(config)) return reject(Error(`${name} does not exist`))
+    try {
+      execute(JSON.parse(fs.readFileSync(config)))
+      return resolve()
+    } catch (error) {
+      reject(error)
+    }
+  })
 }
 
 export { run }

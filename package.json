@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx webpack",
     "watch": "npx webpack --watch",
-    "test": "npx eslint --color src"
+    "test": "npx eslint --color src && npx jest"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
