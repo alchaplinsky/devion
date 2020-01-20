@@ -4,14 +4,10 @@ import fs from 'fs'
 jest.mock('fs')
 
 describe('#remove', () => {
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
+  afterEach(() => jest.clearAllMocks())
 
   describe('config file does not exist', () => {
-    beforeEach(() => {
-      fs.__setExists(false)
-    })
+    beforeEach(() => fs.__setExists(false))
 
     it('rejects with error', async () => {
       await expect(remove('devion')).rejects.toStrictEqual(Error('devion does not exist'))
@@ -19,9 +15,7 @@ describe('#remove', () => {
   })
 
   describe('config file exists', () => {
-    beforeEach(() => {
-      fs.__setExists(true)
-    })
+    beforeEach(() => fs.__setExists(true))
 
     describe('successful deletion', () => {
       it('resolves', async () => {
@@ -35,9 +29,7 @@ describe('#remove', () => {
     })
 
     describe('unsuccessful deletion', () => {
-      beforeEach(() => {
-        fs.__setError('no permissions')
-      })
+      beforeEach(() => fs.__setError('no permissions'))
 
       it('rejects with error', async () => {
         await expect(remove('devion')).rejects.toStrictEqual(Error('no permissions'))

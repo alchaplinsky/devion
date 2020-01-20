@@ -5,25 +5,19 @@ import childProcess from 'child_process'
 jest.mock('fs')
 jest.mock('child_process')
 
-describe('#remove', () => {
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
+describe('#run', () => {
+  afterEach(() => jest.clearAllMocks())
 
   describe('cofig file does not exist', () => {
-    beforeEach(() => {
-      fs.__setExists(false)
-    })
+    beforeEach(() => fs.__setExists(false))
 
     it('rejected with error', async () => {
-      await expect(run('project')).rejects.toStrictEqual(Error('project does not exist'))
+      await expect(run('project')).rejects.toStrictEqual(Error('not_found'))
     })
   })
 
   describe('cofig file exists', () => {
-    beforeEach(() => {
-      fs.__setExists(true)
-    })
+    beforeEach(() => fs.__setExists(true))
 
     describe('config file is readable', () => {
       describe('successful process spawning', () => {
@@ -42,9 +36,7 @@ describe('#remove', () => {
       })
 
       describe('unsuccessful process spawning', () => {
-        beforeEach(() => {
-          childProcess.__setError('spawn /bin/sh ENOENT')
-        })
+        beforeEach(() => childProcess.__setError('spawn /bin/sh ENOENT'))
 
         it('rejects', async () => {
           await expect(run('project')).rejects.toStrictEqual(Error('spawn /bin/sh ENOENT'))
@@ -53,9 +45,7 @@ describe('#remove', () => {
     })
 
     describe('config file is not readable', () => {
-      beforeEach(() => {
-        fs.__setError('could not read file')
-      })
+      beforeEach(() => fs.__setError('could not read file'))
 
       it('rejected with error', async () => {
         await expect(run('project')).rejects.toStrictEqual(Error('could not read file'))

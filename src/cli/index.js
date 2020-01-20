@@ -12,6 +12,7 @@ const resolve = (cmd) => {
   } else if (cmd.edit) {
     // edit
   } else {
+    if (cmd.args[0] === undefined) return
     run(cmd.args[0])
   }
 }

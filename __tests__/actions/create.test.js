@@ -4,14 +4,10 @@ import fs from 'fs'
 jest.mock('fs')
 
 describe('#create', () => {
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
+  afterEach(() => jest.clearAllMocks())
 
   describe('config file already exists', () => {
-    beforeEach(() => {
-      fs.__setExists(true)
-    })
+    beforeEach(() => fs.__setExists(true))
 
     it('rejected with error', async () => {
       await expect(create('project', 'DATA')).rejects.toStrictEqual(Error('project already exists'))
@@ -19,9 +15,7 @@ describe('#create', () => {
   })
 
   describe('config file does not exist', () => {
-    beforeEach(() => {
-      fs.__setExists(false)
-    })
+    beforeEach(() => fs.__setExists(false))
 
     describe('successful file creation', () => {
       it('resolves', async () => {
@@ -40,9 +34,7 @@ describe('#create', () => {
     })
 
     describe('unsuccessful file creation', () => {
-      beforeEach(() => {
-        fs.__setError('no permission')
-      })
+      beforeEach(() => fs.__setError('no permission'))
 
       it('resolves', async () => {
         await expect(create('project', 'DATA')).rejects.toStrictEqual(Error('no permission'))

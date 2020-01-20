@@ -9,26 +9,25 @@ const question = {
   message: 'Do you want to create one?'
 }
 
-const run = name => {
-  const subprocess = _run(name)
-  if (!subprocess) {
-    console.log(
-      chalk.gray('Looks like configuration for ') +
-      chalk.bold(name) +
-      chalk.gray(' does not exist')
-    )
-    inquirer.prompt([question]).then(answers => {
-      if (answers.create) _create(name)
-    })
-  } else {
-    subprocess.on('error', () => {
-      console.error(
-        chalk.yellow('Failed to start ') +
-        chalk.bold(name) +
-        chalk.yellow(' application')
-      )
-    })
-  }
+const handleConfigNotFound = name => {
+  console.log(
+    chalk.gray('Looks like configuration for ') +
+    chalk.bold(name) +
+    chalk.gray(' does not exist')
+  )
+  inquirer.prompt([question]).then(answers => {
+    if (answers.create) _create(name)
+  })
 }
+
+const run = name => _run(name).catch(error => {
+  switch (error.message) {
+    case 'not_found':
+      handleConfigNotFound(name)
+      break
+    default:
+      console.log(error.message)
+  }
+})
 
 export { run }

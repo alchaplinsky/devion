@@ -2,3 +2,5 @@ node_modules/
 src/
 test/
 .circleci/
+__tests__/
+__mocks__/
