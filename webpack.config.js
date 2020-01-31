@@ -6,7 +6,9 @@ module.exports = {
     filename: 'index.js',
     libraryTarget: 'commonjs2'
   },
-
+  resolve: {
+    modules: ['node_modules', 'src']
+  },
   module: {
     rules: [
       {

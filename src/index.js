@@ -1,7 +1,7 @@
 import commander from 'commander'
 import json from '../package.json'
-import { setup } from './actions/base'
-import { resolve } from './cli'
+import { setup } from 'actions/base'
+import { resolve } from 'cli'
 
 commander
   .version(json.version)

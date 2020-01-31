@@ -24,7 +24,7 @@ describe('#remove', () => {
 
       it('deletes file', async () => {
         await remove('devion')
-        expect(fs.unlink).toBeCalledWith('/home/test/.devion/apps/devion.json', expect.any(Function))
+        expect(fs.unlink).toBeCalledWith('/home/test/.devion/projects/devion.json', expect.any(Function))
       })
     })
 

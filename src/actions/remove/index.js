@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { configFile } from '../base'
+import { configFile } from 'actions/base'
 
 const remove = name => {
   const config = configFile(name)

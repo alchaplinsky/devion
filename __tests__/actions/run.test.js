@@ -11,8 +11,8 @@ describe('#run', () => {
   describe('cofig file does not exist', () => {
     beforeEach(() => fs.__setExists(false))
 
-    it('rejected with error', async () => {
-      await expect(run('project')).rejects.toStrictEqual(Error('not_found'))
+    it('throws not found error', () => {
+      expect(() => run('project')).toThrowError('not_found')
     })
   })
 
@@ -21,12 +21,14 @@ describe('#run', () => {
 
     describe('config file is readable', () => {
       describe('successful process spawning', () => {
-        it('resolves', async () => {
-          await expect(run('project')).resolves.toStrictEqual()
+        it('returns a list of processes', () => {
+          const result = run('project')
+          expect(result).toBeInstanceOf(Array)
+          expect(result.length).toEqual(1)
         })
 
-        it('spawns new process', async () => {
-          await run('project')
+        it('spawns new process', () => {
+          run('project')
           expect(childProcess.spawn).toBeCalledWith('yarn start', [], {
             cwd: '/user/project',
             shell: true,
@@ -38,8 +40,10 @@ describe('#run', () => {
       describe('unsuccessful process spawning', () => {
         beforeEach(() => childProcess.__setError('spawn /bin/sh ENOENT'))
 
-        it('rejects', async () => {
-          await expect(run('project')).rejects.toStrictEqual(Error('spawn /bin/sh ENOENT'))
+        it('returns a list of processes', () => {
+          const result = run('project')
+          expect(result).toBeInstanceOf(Array)
+          expect(result.length).toEqual(1)
         })
       })
     })
@@ -47,8 +51,8 @@ describe('#run', () => {
     describe('config file is not readable', () => {
       beforeEach(() => fs.__setError('could not read file'))
 
-      it('rejected with error', async () => {
-        await expect(run('project')).rejects.toStrictEqual(Error('could not read file'))
+      it('throws an error', () => {
+        expect(() => run('project')).toThrowError('could not read file')
       })
     })
   })

@@ -12,10 +12,12 @@ const __setUserResponse = options => {
 
 inquirer.prompt = jest.fn().mockImplementation(questions => {
   console.log(questions)
-  if (questions.length === 1) {
+  if (questions[0].name === 'create') {
     return Promise.resolve({ create: create })
-  } else {
-    return Promise.resolve({ path: path, command: command })
+  } else if (questions[0].name === 'path') {
+    return Promise.resolve({ path: path })
+  } else if (questions[0].name === 'command') {
+    return Promise.resolve({ command: command })
   }
 })
 inquirer.__setUserResponse = __setUserResponse

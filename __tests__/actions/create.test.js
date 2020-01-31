@@ -25,7 +25,7 @@ describe('#create', () => {
       it('creates a file', async () => {
         await create('project', 'DATA')
         expect(fs.writeFile).toBeCalledWith(
-          '/home/test/.devion/apps/project.json',
+          '/home/test/.devion/projects/project.json',
           '"DATA"',
           { flag: 'w' },
           expect.any(Function)

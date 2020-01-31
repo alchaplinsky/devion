@@ -31,8 +31,12 @@ const readFileSync = jest.fn().mockImplementation(filename => {
   }
   return JSON.stringify({
     name: 'project',
-    path: '/user/project',
-    command: 'yarn start'
+    processes: [
+      {
+        path: '/user/project',
+        start: 'yarn start'
+      }
+    ]
   })
 })
 

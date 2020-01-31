@@ -21,7 +21,7 @@ const spawn = jest.fn().mockImplementation(() => {
   if (cpError) {
     setTimeout(() => errorCallback(cpError), 50)
   } else {
-    setTimeout(() => closeCallback(), 50)
+    setTimeout(() => closeCallback(0), 50)
   }
 
   return {

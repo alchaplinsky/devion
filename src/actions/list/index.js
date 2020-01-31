@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { APPS_DIR, EXTENSION } from '../base'
+import { APPS_DIR, EXTENSION } from 'actions/base'
 
 const list = () => {
   return new Promise((resolve, reject) => {

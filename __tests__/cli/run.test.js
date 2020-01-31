@@ -11,6 +11,8 @@ jest.mock('child_process')
 jest.mock('inquirer')
 console.log = jest.fn()
 
+const sleep = (ms) => new Promise(resolve => setTimeout(() => resolve(), ms))
+
 describe('#run', () => {
   afterEach(() => jest.clearAllMocks())
 
@@ -68,7 +70,18 @@ describe('#run', () => {
       })
     })
 
-    describe('unsuccessful process spawning', () => {
+    describe('process closes after 50ms', () => {
+      beforeEach(async () => {
+        await run('project')
+      })
+
+      it('logs process exited message', async () => {
+        await sleep(50)
+        expect(console.log).toBeCalledWith('Process exited with code 0')
+      })
+    })
+
+    describe('process crashes after 50ms', () => {
       beforeEach(async () => {
         childProcess.__setError('spawn /bin/sh ENOENT')
         await run('project')
@@ -78,7 +91,8 @@ describe('#run', () => {
         expect(inquirer.prompt).not.toBeCalled()
       })
 
-      it('logs error message', () => {
+      it('logs error message', async () => {
+        await sleep(50)
         expect(console.log).toBeCalledWith('spawn /bin/sh ENOENT')
       })
     })
