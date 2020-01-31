@@ -2,8 +2,8 @@
 > Development environment manager
 
 [![CircleCI](https://circleci.com/gh/alchaplinsky/devion.svg?style=svg)](https://circleci.com/gh/alchaplinsky/devion)
-![GitHub All Releases](https://img.shields.io/github/downloads/alchaplinsky/devion/total?label=Downloads)
-![Coveralls github](https://img.shields.io/coveralls/github/alchaplinsky/devion)
+![npm](https://img.shields.io/npm/dt/devion?label=Downloads)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/alchaplinsky/devion)
 
 ## Usage
 
