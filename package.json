@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx webpack",
     "watch": "npx webpack --watch",
-    "test": "npx eslint --color src __tests__ && npx jest"
+    "test": "npx eslint --color src test && npx jest"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,10 @@
+.editorcofig
+.eslintrx.js
+.prettierrc
+.circleci/
 node_modules/
 src/
 test/
-.circleci/
-__tests__/
-__mocks__/
+babel.config.js
+webpack.config.js
+jest.config.js
