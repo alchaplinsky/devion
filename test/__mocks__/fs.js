@@ -1,5 +1,6 @@
 const fs = jest.genMockFromModule('fs')
 
+let fsNotExistOnce = false
 let fsExists = true
 let fsError = null
 let fsMockFiles = []
@@ -7,6 +8,11 @@ let fsMockFiles = []
 const __setExists = value => {
   fsExists = value
 }
+
+const __setNotExistOnce = () => {
+  fsNotExistOnce = true
+}
+
 const __setError = message => {
   fsError = new Error(message)
   fsMockFiles = undefined
@@ -18,7 +24,12 @@ const __setMockFiles = files => {
 }
 
 const existsSync = filename => {
-  return fsExists
+  if (fsNotExistOnce) {
+    fsNotExistOnce = false
+    return false
+  } else {
+    return fsExists
+  }
 }
 
 const readdir = (directoryPath, callback) => {
@@ -46,6 +57,7 @@ const writeFile = jest.fn().mockImplementation((_name, _data, _options, callback
 
 fs.__setError = __setError
 fs.__setExists = __setExists
+fs.__setNotExistOnce = __setNotExistOnce
 fs.__setMockFiles = __setMockFiles
 fs.existsSync = existsSync
 fs.readdir = readdir

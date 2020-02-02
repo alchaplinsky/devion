@@ -33,9 +33,9 @@ describe('#remove', () => {
       })
 
       it('properly formats message', () => {
-        expect(chalk.gray).toHaveBeenNthCalledWith(1, 'Configuration for ')
+        expect(chalk.yellow).toHaveBeenNthCalledWith(1, 'Configuration for ')
         expect(chalk.bold).toHaveBeenNthCalledWith(1, 'devion')
-        expect(chalk.gray).toHaveBeenNthCalledWith(2, ' has been removed')
+        expect(chalk.yellow).toHaveBeenNthCalledWith(2, ' has been removed')
       })
     })
 
