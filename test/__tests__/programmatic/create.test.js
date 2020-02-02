@@ -1,4 +1,4 @@
-import { create } from 'actions/create'
+import { create } from 'programmatic/create'
 import fs from 'fs'
 
 jest.mock('fs')

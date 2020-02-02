@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import inquirer from 'inquirer'
-import { run as _run } from 'actions'
+import { run as _run } from 'programmatic'
 import { create as _create } from './create'
 
 const question = {

@@ -1,4 +1,4 @@
-import { list } from 'actions/list'
+import { list } from 'programmatic/list'
 import fs from 'fs'
 
 jest.mock('fs')

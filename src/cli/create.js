@@ -1,5 +1,5 @@
-import { create as _create } from 'actions'
-import { analyze } from 'analyzers'
+import { create as _create } from 'programmatic'
+import { analyze } from 'programmatic/analyzers'
 import inquirer from 'inquirer'
 
 const create = name => {

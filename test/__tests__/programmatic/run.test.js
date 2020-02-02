@@ -1,4 +1,4 @@
-import { run } from 'actions/run'
+import { run } from 'programmatic/run'
 import fs from 'fs'
 import childProcess from 'child_process'
 

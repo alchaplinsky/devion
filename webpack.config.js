@@ -1,9 +1,12 @@
 module.exports = {
   mode: 'none',
   target: 'node',
-  entry: './src/index.js',
+  entry: {
+   index:  './src/programmatic/index.js',
+   cli: './src/cli/index.js'
+  },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     libraryTarget: 'commonjs2'
   },
   resolve: {

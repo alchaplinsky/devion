@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { configFile } from 'actions/base'
+import { configFile } from 'programmatic/base'
 
 const create = (name, data) => {
   const config = configFile(name)

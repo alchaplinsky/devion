@@ -1,11 +1,11 @@
 import inquirer from 'inquirer'
 
 import { create } from 'cli/create'
-import { create as _create } from 'actions/create'
-import { analyze } from 'analyzers'
+import { create as _create } from 'programmatic/create'
+import { analyze } from 'programmatic/analyzers'
 
-jest.mock('actions/create')
-jest.mock('analyzers')
+jest.mock('programmatic/create')
+jest.mock('programmatic/analyzers')
 jest.mock('inquirer')
 console.log = jest.fn()
 

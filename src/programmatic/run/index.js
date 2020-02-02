@@ -1,6 +1,6 @@
 import fs from 'fs'
 import { spawn } from 'child_process'
-import { configFile } from 'actions/base'
+import { configFile } from 'programmatic/base'
 
 const execute = data => {
   return data.processes.map(process => {

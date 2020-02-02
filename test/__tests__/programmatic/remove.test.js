@@ -1,4 +1,4 @@
-import { remove } from 'actions/remove'
+import { remove } from 'programmatic/remove'
 import fs from 'fs'
 
 jest.mock('fs')
