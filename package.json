@@ -1,6 +1,6 @@
 {
   "name": "devion",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Applications manager for developers",
   "main": "dist/index.js",
   "scripts": {
