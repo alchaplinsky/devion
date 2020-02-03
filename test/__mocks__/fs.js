@@ -40,8 +40,9 @@ const readFileSync = jest.fn().mockImplementation(filename => {
   if (fsError) {
     throw fsError
   }
+  const name = filename.split('/').pop().replace('.json', '')
   return JSON.stringify({
-    name: 'project',
+    name: name,
     processes: [
       {
         path: '/user/project',

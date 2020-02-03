@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { APPS_DIR, EXTENSION } from 'programmatic/base'
+import { APPS_DIR, EXTENSION, readConfig } from 'programmatic/base'
 
 const list = () => {
   return new Promise((resolve, reject) => {
@@ -9,7 +9,7 @@ const list = () => {
       return resolve(
         files
           .filter(file => file.match(EXTENSION))
-          .map(file => file.replace(EXTENSION, ''))
+          .map(file => readConfig(file.replace(EXTENSION, '')))
       )
     })
   })

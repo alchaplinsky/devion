@@ -1,6 +1,5 @@
-import fs from 'fs'
 import { spawn } from 'child_process'
-import { configFile } from 'programmatic/base'
+import { readConfig } from 'programmatic/base'
 
 const execute = data => {
   return data.processes.map(({ start, path }) => {
@@ -13,10 +12,7 @@ const execute = data => {
 }
 
 const run = name => {
-  const config = configFile(name)
-
-  if (!fs.existsSync(config)) throw Error('not_found')
-  return execute(JSON.parse(fs.readFileSync(config)))
+  return execute(readConfig(name))
 }
 
 export { run }
