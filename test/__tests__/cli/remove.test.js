@@ -16,7 +16,7 @@ describe('#remove', () => {
     })
 
     it('logs an error', () => {
-      expect(console.log).toHaveBeenNthCalledWith(1, 'devion does not exist')
+      expect(console.log).toHaveBeenNthCalledWith(1, '▸  Configuration for devion does not exist')
     })
   })
 
@@ -46,7 +46,7 @@ describe('#remove', () => {
       })
 
       it('logs deletion error', () => {
-        expect(console.log).toHaveBeenNthCalledWith(1, 'no permissions')
+        expect(console.log).toHaveBeenNthCalledWith(1, '▸  no permissions')
       })
     })
   })

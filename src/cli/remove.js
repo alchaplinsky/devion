@@ -1,4 +1,5 @@
 import chalk from 'chalk'
+import { handleError } from './errors'
 import { remove as _remove } from 'programmatic'
 
 const remove = name => _remove(name).then(() => {
@@ -7,6 +8,6 @@ const remove = name => _remove(name).then(() => {
     chalk.bold(name) +
     chalk.yellow(' has been removed')
   )
-}).catch(error => console.log(chalk.yellow(error.message)))
+}).catch(error => handleError(name, error))
 
 export { remove }

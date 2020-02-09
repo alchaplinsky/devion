@@ -10,7 +10,7 @@ describe('#remove', () => {
     beforeEach(() => fs.__setExists(false))
 
     it('rejects with error', async () => {
-      await expect(remove('devion')).rejects.toStrictEqual(Error('devion does not exist'))
+      await expect(remove('devion')).rejects.toStrictEqual(Error('not_found'))
     })
   })
 

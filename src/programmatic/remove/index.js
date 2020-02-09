@@ -4,7 +4,7 @@ import { configFile } from 'programmatic/base'
 const remove = name => {
   const config = configFile(name)
   return new Promise((resolve, reject) => {
-    if (!fs.existsSync(config)) return reject(Error(`${name} does not exist`))
+    if (!fs.existsSync(config)) return reject(Error('not_found'))
 
     fs.unlink(config, error => {
       if (error) return reject(error)

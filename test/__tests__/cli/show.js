@@ -14,7 +14,7 @@ describe('#show', () => {
     })
 
     it('logs error', () => {
-      expect(console.log).toHaveBeenNthCalledWith(1, 'file does not exist')
+      expect(console.log).toHaveBeenNthCalledWith(1, '▸  file does not exist')
     })
   })
 
