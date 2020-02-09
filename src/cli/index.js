@@ -1,4 +1,5 @@
 import { list } from './list'
+import { show } from './show'
 import { remove } from './remove'
 import { run } from './run'
 
@@ -8,7 +9,7 @@ const resolve = (cmd) => {
   } else if (cmd.delete) {
     remove(cmd.args[0])
   } else if (cmd.show) {
-    // show
+    show(cmd.args[0])
   } else if (cmd.edit) {
     // edit
   } else {
