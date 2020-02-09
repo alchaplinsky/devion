@@ -21,6 +21,7 @@ const handleConfigNotFound = name => {
 }
 
 const run = name => {
+  console.log(`${chalk.gray('Running')} ${chalk.bold(name)} ${chalk.gray('project...')}`)
   try {
     const processes = _run(name)
     processes.forEach(process => {

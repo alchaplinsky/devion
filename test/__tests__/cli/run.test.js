@@ -21,8 +21,9 @@ describe('#run', () => {
 
     it('logs error message', async () => {
       await run('devion')
+      expect(console.log).toHaveBeenNthCalledWith(1, 'Running devion project...')
       expect(console.log).toHaveBeenNthCalledWith(
-        1,
+        2,
         'Looks like configuration for devion does not exist'
       )
     })
@@ -65,8 +66,8 @@ describe('#run', () => {
         expect(inquirer.prompt).not.toBeCalled()
       })
 
-      it('does not log anything', () => {
-        expect(console.log).not.toBeCalled()
+      it('logs runing project message', () => {
+        expect(console.log).toHaveBeenNthCalledWith(1, 'Running project project...')
       })
     })
 
