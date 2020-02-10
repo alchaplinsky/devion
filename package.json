@@ -1,7 +1,7 @@
 {
   "name": "devion",
-  "version": "0.1.6",
-  "description": "Applications manager for developers",
+  "version": "0.1.7",
+  "description": "One command to run all your projects in development",
   "main": "dist/index.js",
   "scripts": {
     "build": "npx webpack",
