@@ -1,5 +1,6 @@
 import { list } from './list'
 import { show } from './show'
+import { edit } from './edit'
 import { remove } from './remove'
 import { run } from './run'
 
@@ -11,7 +12,7 @@ const resolve = (cmd) => {
   } else if (cmd.show) {
     show(cmd.show)
   } else if (cmd.edit) {
-    // edit
+    edit(cmd.edit)
   } else {
     if (cmd.args[0] === undefined) return
     run(cmd.args[0])
