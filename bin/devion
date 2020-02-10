@@ -11,10 +11,10 @@ commander
 
 commander
   .arguments('[name]')
-  .option('-l, --list')
-  .option('-s, --show')
-  .option('-e, --edit')
-  .option('-d, --delete')
+  .option('-l, --list', 'list existing project configurations')
+  .option('-s, --show <name>', 'show project configuration')
+  .option('-e, --edit <name>', 'open project configuration in editor')
+  .option('-d, --delete <name>', 'delete project configuration')
   .action((_, cmd) => {
     setup()
     resolve(cmd)

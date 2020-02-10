@@ -7,9 +7,9 @@ const resolve = (cmd) => {
   if (cmd.list) {
     list()
   } else if (cmd.delete) {
-    remove(cmd.args[0])
+    remove(cmd.delete)
   } else if (cmd.show) {
-    show(cmd.args[0])
+    show(cmd.show)
   } else if (cmd.edit) {
     // edit
   } else {
