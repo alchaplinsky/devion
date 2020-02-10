@@ -1,6 +1,5 @@
 import { edit } from 'programmatic/edit'
-import { spawn } from 'child_process'
-import fs from 'fs'
+import childProcess, { spawn } from 'child_process'
 
 const EDITOR = process.env.EDITOR
 jest.mock('fs')
@@ -19,8 +18,8 @@ describe('#edit', () => {
       process.env.EDITOR = EDITOR
     })
 
-    it('resolves', () => {
-      expect(edit('devion')).resolves.toBe(undefined)
+    it('resolves', async () => {
+      await expect(edit('devion')).resolves.toBe(undefined)
     })
 
     it('opens config file in editor', async () => {
@@ -30,10 +29,10 @@ describe('#edit', () => {
 
     describe('error while opening file', () => {
       beforeEach(() => {
-        fs.__setError('no permissions')
+        childProcess.__setError('no permissions')
       })
-      it('rejects with error', () => {
-        expect(edit('devion')).rejects.toStrictEqual(Error('no permissions'))
+      it('rejects with error', async () => {
+        await expect(edit('devion')).rejects.toStrictEqual(Error('no permissions'))
       })
     })
   })
@@ -48,8 +47,8 @@ describe('#edit', () => {
       process.env.EDITOR = EDITOR
     })
 
-    it('rejects with error', () => {
-      expect(edit('devion')).rejects.toStrictEqual(Error('no_editor_env_variable'))
+    it('rejects with error', async () => {
+      await expect(edit('devion')).rejects.toStrictEqual(Error('no_editor_env_variable'))
     })
   })
 })
