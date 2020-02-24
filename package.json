@@ -13,9 +13,11 @@
     "url": "git@github.com/alchaplinsky/devion.git"
   },
   "keywords": [
+    "cli",
     "development",
     "projects",
-    "applications"
+    "applications",
+    "runner"
   ],
   "author": "Alex Chaplinsky",
   "license": "MIT",
@@ -41,8 +43,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^25.1.0",
     "regenerator-runtime": "^0.13.3",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "chalk": "^3.0.0",
